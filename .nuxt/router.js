@@ -2,6 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
+const _48701468 = () => interopDefault(import('../pages/blog/index.vue' /* webpackChunkName: "pages/blog/index" */))
+const _24b67bca = () => interopDefault(import('../pages/cart/index.vue' /* webpackChunkName: "pages/cart/index" */))
+const _55cea39a = () => interopDefault(import('../pages/shakers/index.vue' /* webpackChunkName: "pages/shakers/index" */))
+const _d57948c8 = () => interopDefault(import('../pages/topShakers/index.vue' /* webpackChunkName: "pages/topShakers/index" */))
 const _e39cb90a = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
@@ -79,6 +83,22 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
+      path: "/blog",
+      component: _48701468,
+      name: "blog"
+    }, {
+      path: "/cart",
+      component: _24b67bca,
+      name: "cart"
+    }, {
+      path: "/shakers",
+      component: _55cea39a,
+      name: "shakers"
+    }, {
+      path: "/topShakers",
+      component: _d57948c8,
+      name: "topShakers"
+    }, {
       path: "/",
       component: _e39cb90a,
       name: "index"

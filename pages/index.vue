@@ -5,7 +5,7 @@
       <v-card flat>
         <v-img height="200px" :src="image_lvl1">
           <v-container fill-height fluid>
-            <v-flex xs12 sm12 md12 mt-5 class="text-md-center">
+            <v-flex xs12 sm12 md12 mt-5 class="text-xs-center">
               <span class="post">The Best online Shaker shop</span>
             </v-flex>
           </v-container>
@@ -32,42 +32,53 @@
       <!-- <v-img :src="image"></v-img> -->
     </v-flex>
 
-    <!-- Content Level 2 -->
-    <v-flex xs12 sm12 md12>
-      <v-card flat>
-        <p>Some information ©©©©©</p>
-      </v-card>
-    </v-flex>
-
     <!-- Image level 2 -->
     <v-flex xs12 sm12 md12 mb-2>
       <v-card flat>
         <v-img height="625px" :src="image_lvl2">
           <v-container fill-height fluid>
-            <v-flex xs12 sm12 md12 align-end class="white--text">
-              <div class="post">The Best online Shaker shop</div>
-              <div>H</div>
-              <div>H</div>
-              <div>H</div>
-              <div>H</div>
-              <div>H</div>
-              <div>H</div>
-              <div>H</div>
-              <v-btn>Click</v-btn>
-            </v-flex>
+            <v-layout row wrap>
+              <v-flex xs12 sm12 md12 align-end class="white--text">
+                <div class="post">The Best online Shaker shop</div>
+                <div class="shaker_history">{{shaker_history}}</div>
+              </v-flex>
+              <v-btn color="secondary" to="/blog" depressed>
+                <v-icon left>book</v-icon>
+                <span>More Information...</span>
+              </v-btn>
+            </v-layout>
           </v-container>
         </v-img>
       </v-card>
+    </v-flex>
+
+    <!-- Posts level 3 -->
+    <v-flex>
+      <Posts/>
+    </v-flex>
+
+    <!-- Affiliate Info -->
+    <v-flex>
+      <Affialite/>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import Posts from "~/components/Posts/Posts";
+import Affialite from "~/components/Info/Affiliate";
+
 export default {
+  components: {
+    Posts,
+    Affialite
+  },
   data() {
     return {
       image_lvl1: require("@/assets/images/alora-griffiths-unsplash2.jpg"),
-      image_lvl2: require("@/assets/images/shaker_lvl2.jpg")
+      image_lvl2: require("@/assets/images/shaker_lvl2.jpg"),
+      shaker_history:
+        "The first protein powders as we would understand them emerged in the late 1890s and early 1900s. The most popular, Plasmon, was endorsed by the likes of Eugen Sandow, Eustace Miles and a series of other fitness personalities who felt knowledgable enough to speak on nutrition. Though made from milk, Plasmon was in effect a whey protein powder, the product was rarely added to drinks. Instead it was mixed into traditional cooking recipes..."
     };
   },
   computed: {
@@ -93,5 +104,11 @@ export default {
   position: relative;
   overflow: hidden;
   box-shadow: 0px 0px white;
+}
+
+.shaker_history {
+  font-size: 20px;
+  width: 800px;
+  text-indent: 10px;
 }
 </style>
